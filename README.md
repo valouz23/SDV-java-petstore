@@ -1,6 +1,7 @@
 ### Bienvenue dans mon projet java petstore
 
 Quelques détails :
+
 BDD
 - J'ai utilisé une base de données local mariadb,appelée petstore, si ce n'est pas votre cas il faudra changer l'url dans le fichier persistence.xml, ainsi que l'utilisateur et le mot de passe
 - J'ai mis tous les noms de table et colonnes dans la base de données totalement ne minuscule, parce qu'avec linux je dois respecter la casse et c'était plus pratique pour moi
