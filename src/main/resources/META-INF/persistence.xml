@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.1">
+  <persistence-unit name="petstore">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <properties>
+      <!-- url de ma base de données mariadb, en local, pour faire le lien avec ma db "petstore" -->
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/petstore"/>
+      <!-- le user que j'utilise pour me connecter à la db -->
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <!-- le mot de passe que j'utilise pour me connecter à la db -->
+      <property name="jakarta.persistence.jdbc.password" value="root"/>
+      <!-- on demande ici de supprimer et recréer la base de donnée à chaque éxecution -->
+      <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <!-- on fait afficher les requête effectuée -->
+      <property name="hibernate.show_sql" value="true" />
+    </properties>
+  </persistence-unit>
+</persistence>
