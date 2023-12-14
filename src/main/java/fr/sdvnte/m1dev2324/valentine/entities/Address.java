@@ -23,12 +23,11 @@ public class Address {
 
     }
 
-    public Address(String number, String street, String zipCode, String city, PetStore petstore) {
+    public Address(String number, String street, String zipCode, String city) {
         this.number = number;
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
-        this.petstore = petstore;
     }
 
     public Integer getId() {

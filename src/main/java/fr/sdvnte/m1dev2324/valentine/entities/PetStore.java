@@ -4,6 +4,7 @@ import fr.sdvnte.m1dev2324.valentine.entities.animals.Animal;
 import fr.sdvnte.m1dev2324.valentine.entities.products.Product;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,13 +17,11 @@ public class PetStore {
     private String name;
     @Column(name = "manager_name", nullable = false, length = 50)
     private String managerName;
-    @ManyToMany
-    @JoinColumn(name = "Product")
-    private Set<Product> products;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Product> products = new HashSet<>();
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Address adresse;
     @OneToMany(mappedBy = "petstore")
-    @JoinColumn(name = "Animal")
     private Set<Animal> animals;
 
     public PetStore() {
@@ -89,8 +88,8 @@ public class PetStore {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", managerName='" + managerName + '\'' +
-                ", products=" + products +
                 ", adresse=" + adresse +
+                "\n    products=" + products +
                 ", animals=" + animals +
                 '}';
     }

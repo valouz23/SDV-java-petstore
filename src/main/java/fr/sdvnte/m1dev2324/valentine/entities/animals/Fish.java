@@ -1,5 +1,6 @@
 package fr.sdvnte.m1dev2324.valentine.entities.animals;
 
+import fr.sdvnte.m1dev2324.valentine.entities.PetStore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -18,8 +19,8 @@ public class Fish extends Animal {
 
     }
 
-    public Fish(LocalDate birth, String color, FishLivEnv livingEnv) {
-        super(birth, color);
+    public Fish(LocalDate birth, String color, PetStore petstore, FishLivEnv livingEnv) {
+        super(birth, color, petstore);
         this.livingEnv = livingEnv;
     }
 
@@ -33,8 +34,11 @@ public class Fish extends Animal {
 
     @Override
     public String toString() {
-        return "Fish{" +
-                "livingEnv=" + livingEnv +
+        return "Fish :" +
+                "\n birth=" + getBirth() +
+                "\n color='" + getColor() + '\'' +
+                "\n livingEnv=" + livingEnv +
+                "\n petstore=" + getPetstore() +
                 '}';
     }
 }

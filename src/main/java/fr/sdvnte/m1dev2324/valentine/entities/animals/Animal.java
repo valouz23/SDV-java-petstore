@@ -26,9 +26,10 @@ public class Animal {
 
     }
 
-    public Animal(LocalDate birth, String color) {
+    public Animal(LocalDate birth, String color, PetStore petstore) {
         this.birth = birth;
         this.color = color;
+        this.petstore = petstore;
     }
 
     public Integer getId() {

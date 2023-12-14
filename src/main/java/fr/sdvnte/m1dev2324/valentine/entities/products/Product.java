@@ -3,6 +3,7 @@ package fr.sdvnte.m1dev2324.valentine.entities.products;
 import fr.sdvnte.m1dev2324.valentine.entities.PetStore;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class Product {
     private ProdType type;
     @Column(name = "price", nullable = false)
     private double price;
-    @ManyToMany(mappedBy = "produits", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(mappedBy = "products")
     private Set<PetStore> petstores;
 
     public Product() {

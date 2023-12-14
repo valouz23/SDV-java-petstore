@@ -1,5 +1,6 @@
 package fr.sdvnte.m1dev2324.valentine.entities.animals;
 
+import fr.sdvnte.m1dev2324.valentine.entities.PetStore;
 import fr.sdvnte.m1dev2324.valentine.entities.animals.Animal;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,8 +18,8 @@ public class Cat extends Animal {
 
     }
 
-    public Cat(LocalDate birth, String color, String chipId) {
-        super(birth, color);
+    public Cat(LocalDate birth, String color, PetStore petstore, String chipId) {
+        super(birth, color, petstore);
         this.chipId = chipId;
     }
 
@@ -32,8 +33,12 @@ public class Cat extends Animal {
 
     @Override
     public String toString() {
-        return "Cat{" +
-                "chipId='" + chipId + '\'' +
-                '}';
+        return "Cat :" +
+                "\n birth=" + getBirth() +
+                "\n color='" + getColor() + '\'' +
+                "\n chipId='" + chipId + '\'' +
+                "\n petstore=" + getPetstore() +
+                "}\n";
     }
+
 }
